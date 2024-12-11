@@ -241,16 +241,9 @@ function endsWith(str, substr) {
  *   formatTime(0, 0) => "00:00"
  */
 function formatTime(minutes, seconds) {
-  let resultMin = '';
-  let resultSec = '';
-  if (minutes < 10) {
-    resultMin = `0${minutes}`;
-  } else resultMin = `${minutes}`;
-  if (seconds < 10) {
-    resultSec = `0${seconds}`;
-  } else resultSec = `${seconds}`;
-  const result = `${resultMin}:${resultSec}`;
-  return result;
+  const min = String(minutes).padStart(2, '0');
+  const sec = String(seconds).padStart(2, '0');
+  return `${min}:${sec}`;
 }
 
 /**
@@ -279,8 +272,8 @@ function reverseString(str) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function orderAlphabetically(str) {
+  return str.split('').sort().join('');
 }
 
 /**
